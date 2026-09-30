@@ -137,7 +137,7 @@ export default function Home() {
                 <button type="button">⌘</button>
                 <input placeholder="Message your crew..." />
                 <button className="send" type="button">↑</button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
