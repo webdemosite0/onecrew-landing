@@ -1,12 +1,190 @@
-import Script from "next/script";
+import Link from "next/link";
+import OneCrewLogo from "../components/OneCrewLogo";
 
-const landingHtml = "\n<header class=\"nav\">\n  <a href=\"#top\" class=\"brand\"><span class=\"crew-mark\" aria-hidden=\"true\"><i></i><i></i><i></i><b></b></span><span class=\"onecrew-wordmark\">OneCrew</span></a>\n  <nav><a href=\"#product\">Product⌄</a><a href=\"#crew\">Crew⌄</a><a href=\"#missions\">Missions</a><a href=\"#pricing\">Pricing</a><a href=\"#resources\">Resources⌄</a></nav>\n  <div class=\"actions\"><button class=\"search\">⌕</button><a href=\"/login\" class=\"login\">Log in</a><a class=\"btn primary small\" href=\"/login?mode=signup\">Start Free →</a></div>\n</header>\n<main id=\"top\">\n<section class=\"hero section\">\n  <div class=\"hero-copy reveal\">\n    <div class=\"eyebrow\">YOUR AI CREW FOR A BIGGER TOMORROW</div>\n    <h1>Build your company<br><span>with an AI crew.</span></h1>\n    <p>OneCrew gives solopreneurs a full team of AI agents — from research and product to marketing, sales, and support. Do more, faster, with people-powered AI.</p>\n    <div class=\"cta-row\"><a class=\"btn primary\" href=\"/login?mode=signup\">Start Free →</a><a class=\"btn secondary\" href=\"#product\"><span class=\"play\">▶</span> Watch the crew in action</a></div>\n    <div class=\"proof\"><span>● No credit card required</span><span>● Setup in minutes</span><span>● 10+ AI teammates</span></div>\n  </div>\n  <div class=\"hero-scene reveal\" data-delay=\"120\">\n    <div class=\"scribble\">A full team<br>in your corner<br>Always. ♡</div>\n    <img class=\"bot atlas\" src=\"/crew/atlas.jpg\" alt=\"Atlas\">\n    <img class=\"bot scout\" src=\"/crew/scout.jpg\" alt=\"Scout\">\n    <img class=\"bot milo\" src=\"/crew/milo.jpg\" alt=\"Milo\">\n    <img class=\"bot nova\" src=\"/crew/nova.jpg\" alt=\"Nova\">\n    <img class=\"bot leo\" src=\"/crew/leo.jpg\" alt=\"Leo\">\n    <img class=\"bot iris\" src=\"/crew/iris.jpg\" alt=\"Iris\">\n    <img class=\"bot zara\" src=\"/crew/zara.jpg\" alt=\"Zara\">\n    <img class=\"bot kael\" src=\"/crew/kael.jpg\" alt=\"Kael\">\n    <img class=\"bot luna\" src=\"/crew/luna.jpg\" alt=\"Luna\">\n    <img class=\"bot echo\" src=\"/crew/echo.jpg\" alt=\"Echo\">\n    <div class=\"sticky\">Ideas →<br>Plans →<br>Products →<br>Customers →<br><b>Freedom ♥</b></div>\n    <div class=\"books\"><i>Small Founder</i><i>Big Ideas</i><i>AI Crew</i><i>Real Impact</i></div>\n    <div class=\"desk\"></div>\n  </div>\n</section>\n<section class=\"trusted\"><strong>TRUSTED BY MODERN BUILDERS</strong><div class=\"logos\"><span>stripe</span><span>▣ Notion</span><span>Figma</span><span>Shopify</span><span>Google</span><span>Slack</span><span>▲ vercel</span><span>Dropbox</span></div></section>\n<section id=\"product\" class=\"product section\">\n  <div class=\"product-copy reveal\">\n    <div class=\"eyebrow\">YOUR ALL-IN-ONE AI OPERATING SYSTEM</div>\n    <h2>Everything you need<br>to build, in one place.</h2>\n    <p>OneCrew brings together a full team of specialized AI agents to help you go from idea to impact — without the overhead.</p>\n    <div class=\"features\">\n      <article><b class=\"fi purple\">⌕</b><div><h3>Research & Strategy</h3><p>Find opportunities, analyze markets, and turn ideas into plans.</p></div></article>\n      <article><b class=\"fi orange\">✦</b><div><h3>Create & Build</h3><p>Design, write, and build your product with AI teammates.</p></div></article>\n      <article><b class=\"fi green\">↗</b><div><h3>Launch & Grow</h3><p>Get customers, grow your audience, and automate marketing.</p></div></article>\n      <article><b class=\"fi cyan\">⚙</b><div><h3>Run & Scale</h3><p>Handle operations, finance, support and more.</p></div></article>\n    </div>\n  </div>\n  <div id=\"missions\" class=\"app-shot reveal\" data-delay=\"120\">\n    <div class=\"window-top\"><div class=\"dots\"><i></i><i></i><i></i></div><b>✦ OneCrew</b><div class=\"fake-search\">⌕ Ask your crew anything…</div></div>\n    <div class=\"app-grid\">\n      <aside><a class=\"on\">⌂ Home</a><a>◎ Missions</a><a>◉ Crew</a><a>▣ Tasks</a><a>◫ Knowledge</a><a>◈ Brand</a><a>⌁ Integrations</a><div class=\"founder\">👤 <span><b>Alex Chen</b><small>Solo Founder</small></span></div></aside>\n      <div class=\"workspace\">\n        <div class=\"work-title\"><div><h3>Good morning, Alex! ☀️</h3><p>Your crew is on it. 12 tasks in progress.</p></div><div class=\"ask\">⌕ Ask your crew anything…</div></div>\n        <div class=\"tiny-crew\"><img src=\"/crew/atlas.jpg\"><img src=\"/crew/scout.jpg\"><img src=\"/crew/milo.jpg\"><img src=\"/crew/nova.jpg\"><img src=\"/crew/leo.jpg\"><img src=\"/crew/iris.jpg\"><img src=\"/crew/zara.jpg\"><img src=\"/crew/kael.jpg\"><img src=\"/crew/luna.jpg\"><img src=\"/crew/echo.jpg\"></div>\n        <div class=\"panels\"><div class=\"mission-box\"><h4>Today’s Missions <a>View all</a></h4><p>◉ Analyze 3 new market opportunities <b>Scout</b><em>In progress</em></p><p>◉ Create social campaign for launch <b>Leo</b><em>In progress</em></p><p>◉ Design new landing page <b>Luna</b><em class=\"review\">In review</em></p><p>◉ Update financial forecast <b>Zara</b><em class=\"done\">Done ✓</em></p></div><div class=\"activity\"><h4>Crew Activity <span>● Live</span></h4><p><img src=\"/crew/scout.jpg\">Scout found 5 competitor insights<small>2 mins ago</small></p><p><img src=\"/crew/milo.jpg\">Milo drafted a growth experiment<small>12 mins ago</small></p><p><img src=\"/crew/luna.jpg\">Luna created 3 hero variations<small>18 mins ago</small></p><p><img src=\"/crew/echo.jpg\">Echo scheduled social content<small>32 mins ago</small></p></div></div>\n      </div>\n      <div class=\"idea\"><h3>From idea<br>to impact.<br><span>Together.</span></h3><div><img src=\"/crew/iris.jpg\"><img src=\"/crew/atlas.jpg\"><img src=\"/crew/milo.jpg\"><img src=\"/crew/leo.jpg\"><img src=\"/crew/luna.jpg\"></div></div>\n    </div>\n  </div>\n</section>\n<section id=\"crew\" class=\"crew section\">\n  <div class=\"crew-copy reveal\"><div class=\"eyebrow\">10 SPECIALISTS. ONE POWERFUL TEAM.</div><h2>Meet your AI Crew</h2><p>A team of AI agents, each with a unique superpower, working together to help you build, grow, and scale.</p></div>\n  <div class=\"crew-grid reveal\" data-delay=\"100\">\n    <article><img src=\"/crew/atlas.jpg\"><b>Atlas</b><span>Chief of Staff</span><small>Plans & keeps you on track</small></article>\n    <article><img src=\"/crew/scout.jpg\"><b>Scout</b><span>Research</span><small>Finds insights & opportunities</small></article>\n    <article><img src=\"/crew/milo.jpg\"><b>Milo</b><span>Growth</span><small>Drives growth & acquisition</small></article>\n    <article><img src=\"/crew/nova.jpg\"><b>Nova</b><span>Operations</span><small>Keeps everything running</small></article>\n    <article><img src=\"/crew/leo.jpg\"><b>Leo</b><span>Sales</span><small>Turns interest into customers</small></article>\n    <article><img src=\"/crew/iris.jpg\"><b>Iris</b><span>Support</span><small>Delights your customers</small></article>\n    <article><img src=\"/crew/zara.jpg\"><b>Zara</b><span>Finance</span><small>Tracks money & insights</small></article>\n    <article><img src=\"/crew/kael.jpg\"><b>Kael</b><span>Product</span><small>Helps you build & ship</small></article>\n    <article><img src=\"/crew/luna.jpg\"><b>Luna</b><span>Design</span><small>Creates beautiful experiences</small></article>\n    <article><img src=\"/crew/echo.jpg\"><b>Echo</b><span>Content</span><small>Tells your story everywhere</small></article>\n  </div>\n</section>\n<section class=\"stats section reveal\"><article><span>▥</span><div><b>50K+</b><small>Solopreneurs building with OneCrew</small></div></article><article><span>★</span><div><b>2M+</b><small>Tasks completed by the crew</small></div></article><article><span>ϟ</span><div><b>80%</b><small>Average time saved</small></div></article><article><span>♥</span><div><b>4.9/5</b><small>From our growing community</small></div></article></section>\n<section id=\"cta\" class=\"big-cta reveal\"><div class=\"cta-team\"><img src=\"/crew/iris.jpg\"><img src=\"/crew/atlas.jpg\"><img src=\"/crew/milo.jpg\"><img src=\"/crew/leo.jpg\"><img src=\"/crew/luna.jpg\"></div><div><h2>A bigger company<br>starts with OneCrew.</h2><p>Build your crew in minutes. Start with one goal and let your team take it from there.</p></div><a class=\"btn white\" href=\"/login?mode=signup\">Start Free →</a></section>\n</main>\n<footer id=\"resources\"><div class=\"footer-grid\"><div><a href=\"#top\" class=\"brand\"><span class=\"crew-mark\" aria-hidden=\"true\"><i></i><i></i><i></i><b></b></span><span class=\"onecrew-wordmark\">OneCrew</span></a><p>A full AI team for every builder.</p></div><div><h4>Product</h4><a>Features</a><a>Integrations</a><a>Pricing</a><a>Changelog</a></div><div><h4>Crew</h4><a>Meet the Crew</a><a>Use Cases</a><a>Customer Stories</a></div><div><h4>Resources</h4><a>Blog</a><a>Guides</a><a>Templates</a></div><div><h4>Company</h4><a>About</a><a>Careers</a><a>Contact</a></div><div><h4>Get founder tips, crew updates, and more.</h4><form><input placeholder=\"Your email\"><button>Subscribe</button></form></div></div><div class=\"foot-bottom\"><span>© 2026 OneCrew. All rights reserved.</span><span>𝕏 &nbsp; in &nbsp; ▶ &nbsp; ◉</span></div></footer>\n\n";
+const crew = [
+  ["atlas","Atlas","Research"],
+  ["nova","Nova","Product"],
+  ["milo","Milo","Marketing"],
+  ["zara","Zara","Sales"],
+  ["leo","Leo","Support"],
+  ["iris","Iris","Design"],
+  ["kael","Kael","Finance"],
+  ["luna","Luna","Operations"],
+  ["echo","Echo","Content"],
+  ["scout","Scout","Strategy"],
+];
+
+function CrewAvatar({name,size=52}:{name:string;size?:number}) {
+  return (
+    <span className="lp2-avatar clean-avatar" style={{width:size,height:size}}>
+      <img src={"/crew/"+name+".jpg"} alt="" />
+    </span>
+  );
+}
 
 export default function Home() {
   return (
-    <>
-      <div dangerouslySetInnerHTML={{ __html: landingHtml }} />
-      <Script src="/script.js" strategy="afterInteractive" />
-    </>
+    <main className="lp2-page">
+      <header className="lp2-nav">
+        <OneCrewLogo />
+        <nav>
+          <a href="#product">Product⌄</a>
+          <a href="#crew">Crew⌄</a>
+          <a href="#solutions">Solutions⌄</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#resources">Resources⌄</a>
+        </nav>
+        <div className="lp2-nav-actions">
+          <button className="lp2-search" aria-label="Search">⌕</button>
+          <Link className="lp2-login" href="/login">Log in</Link>
+          <Link className="lp2-start" href="/login?mode=signup">Start Free →</Link>
+        </div>
+      </header>
+
+      <section className="lp2-hero" id="product">
+        <div className="lp2-copy">
+          <div className="lp2-kicker">YOUR AI CREW FOR A BIGGER TOMORROW</div>
+          <h1>Build your<br/>company<br/><span>with an AI crew.</span></h1>
+          <p>OneCrew gives solopreneurs a full team of AI agents — from research and product to marketing, sales, and support. Do more, faster, with people-powered AI.</p>
+          <div className="lp2-actions">
+            <Link className="lp2-primary" href="/login?mode=signup">Start Free →</Link>
+            <a className="lp2-watch" href="#crew"><span>▶</span>Watch the crew in action</a>
+          </div>
+          <div className="lp2-proof">
+            <span>● No credit card required</span>
+            <span>● Setup in minutes</span>
+            <span>● 10+ AI teammates</span>
+          </div>
+        </div>
+
+        <div className="lp2-visual">
+          <div className="lp2-aura lp2-aura-one"/>
+          <div className="lp2-aura lp2-aura-two"/>
+          <div className="lp2-floating lp2-float-top"><CrewAvatar name="leo" size={98}/></div>
+          <div className="lp2-floating lp2-float-bottom"><CrewAvatar name="atlas" size={120}/><div className="lp2-scribble">A full team<br/>in your corner<br/>Always. ♡</div></div>
+
+          <div className="lp2-product-window">
+            <aside className="lp2-app-side">
+              <div className="lp2-app-brand"><span className="crew-mark mini"><i/><i/><i/><b/></span><strong>OneCrew</strong><span>⋮</span></div>
+              <button className="lp2-newchat">＋ New chat <kbd>Ctrl K</kbd></button>
+              <div className="lp2-app-links">
+                <button>⌂ <span>Home</span></button>
+                <button className="active">▣ <span>Crew Chat</span></button>
+                <button>◎ <span>Missions</span></button>
+                <button>◫ <span>Agents</span></button>
+                <button>▤ <span>Knowledge</span></button>
+                <button>⌁ <span>Integrations</span></button>
+                <button>▥ <span>Analytics</span></button>
+              </div>
+              <div className="lp2-recent">
+                <small>Recent</small>
+                <span>Launch plan for SaaS</span>
+                <span>Social media campaign</span>
+                <span>Competitor analysis</span>
+                <span>Website redesign</span>
+                <span>Q3 growth strategy</span>
+              </div>
+            </aside>
+
+            <div className="lp2-chat">
+              <div className="lp2-chat-top">
+                <strong>Crew Chat⌄</strong>
+                <div><span className="lp2-live">● 10 agents online</span><button>⋮</button><span className="lp2-userdot">A</span></div>
+              </div>
+
+              <div className="lp2-agent-strip" id="crew">
+                {crew.map(([img,name,role])=>(
+                  <div key={name}>
+                    <CrewAvatar name={img} size={45}/>
+                    <b>{name}</b>
+                    <small>{role}</small>
+                  </div>
+                ))}
+              </div>
+
+              <div className="lp2-thread">
+                <div className="lp2-user-message">Create a launch plan for my SaaS product <span className="lp2-userdot">A</span></div>
+
+                <div className="lp2-response">
+                  <div className="lp2-response-head">
+                    <CrewAvatar name="atlas" size={42}/>
+                    <div><b>Atlas <span>◌</span></b><small>Chief of Staff</small></div>
+                  </div>
+                  <p>Here’s a complete launch plan for your SaaS product:</p>
+                  <div className="lp2-checklist">
+                    <div><i>✓</i><span>Market research & competitor analysis</span></div>
+                    <div><i>✓</i><span>Target audience and positioning</span></div>
+                    <div><i className="open">○</i><span>Go-to-market strategy</span></div>
+                    <div><i className="open">○</i><span>Marketing campaign ideas</span></div>
+                    <div><i className="open">○</i><span>Launch timeline (4 weeks)</span></div>
+                  </div>
+                </div>
+
+                <div className="lp2-docs">
+                  <article><div className="lp2-doc-preview"><span/><span/><span/><span/></div><b>Go-to-Market Strategy</b><small>PDF · 12 pages</small></article>
+                  <article><div className="lp2-doc-preview second"><span/><span/><span/><span/></div><b>Launch Timeline</b><small>Notion · 4 weeks</small></article>
+                </div>
+
+                <div className="lp2-quick">
+                  <button>Make it more detailed</button>
+                  <button>Add budget estimates</button>
+                  <button>Create social media plan</button>
+                  <button>Turn into a Notion doc</button>
+                </div>
+              </div>
+
+              <form className="lp2-composer">
+                <button type="button">⌘</button>
+                <input placeholder="Message your crew..." />
+                <button className="send" type="button">↑</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="lp2-trust">
+        <small>TRUSTED BY FORWARD-THINKING BUILDERS</small>
+        <div>
+          <span>▣ Notion</span>
+          <span>✣ slack</span>
+          <span>Google</span>
+          <span>▦ Microsoft</span>
+          <span>Figma</span>
+          <span>◉ Stripe</span>
+          <span>◒ Linear</span>
+          <span>▲ Vercel</span>
+          <span>Discord</span>
+          <span>◉ GitHub</span>
+        </div>
+      </section>
+
+      <section className="lp2-feature-row" id="solutions">
+        <article><span className="lp2-icon purple">ϟ</span><div><b>AI Agents</b><p>Specialized teammates for every part of your business.</p></div><button>→</button></article>
+        <article><span className="lp2-icon blue">≋</span><div><b>Real Work</b><p>From ideas to execution, not just suggestions.</p></div><button>→</button></article>
+        <article><span className="lp2-icon green">●</span><div><b>Your Knowledge</b><p>Connected to your tools, files, and context.</p></div><button>→</button></article>
+        <article><span className="lp2-icon pink">◆</span><div><b>Built for Growth</b><p>Scale from solo to team without hiring.</p></div><button>→</button></article>
+      </section>
+
+      <section className="lp2-deep" id="pricing">
+        <div>
+          <div className="lp2-kicker">ONE CREW. ONE COMPANY BRAIN.</div>
+          <h2>Your agents don’t just answer.<br/>They work together.</h2>
+          <p>Give the crew a goal and OneCrew turns it into missions, delegated tasks, approvals, and real business output.</p>
+          <Link className="lp2-primary" href="/login?mode=signup">Build your crew →</Link>
+        </div>
+        <div className="lp2-deep-card">
+          <div className="lp2-mini-row"><CrewAvatar name="scout" size={58}/><div><b>Scout</b><small>Market research complete</small></div><em>✓</em></div>
+          <div className="lp2-mini-row"><CrewAvatar name="milo" size={58}/><div><b>Milo</b><small>Growth campaign drafted</small></div><em>✓</em></div>
+          <div className="lp2-mini-row"><CrewAvatar name="luna" size={58}/><div><b>Luna</b><small>Launch visuals in progress</small></div><em>●</em></div>
+        </div>
+      </section>
+
+      <footer className="lp2-footer" id="resources">
+        <OneCrewLogo />
+        <span>AI teammates for ambitious solopreneurs.</span>
+        <div><a href="#product">Product</a><a href="#crew">Crew</a><a href="#solutions">Solutions</a><a href="/login">Log in</a></div>
+      </footer>
+    </main>
   );
 }
