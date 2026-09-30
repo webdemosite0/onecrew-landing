@@ -133,7 +133,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <form className="lp2-composer">
+              <div className="lp2-composer">
                 <button type="button">⌘</button>
                 <input placeholder="Message your crew..." />
                 <button className="send" type="button">↑</button>
