@@ -88,6 +88,18 @@ export default function DashboardPage() {
   const [missionTitle, setMissionTitle] = useState("");
   const [missionOwner, setMissionOwner] = useState("Atlas");
   const [toast, setToast] = useState("");
+  const [vaultDocs, setVaultDocs] = useState(["Brand voice guide", "Pricing & packaging", "Customer interview notes", "Launch playbook"]);
+  const [knowledgeDraft, setKnowledgeDraft] = useState("");
+  const [forgeGoal, setForgeGoal] = useState("");
+  const [atelierItems, setAtelierItems] = useState(["Launch hero copy", "Q4 announcement", "Founder story"]);
+  const [integrations, setIntegrations] = useState<Record<string, boolean>>({
+    Gmail: true,
+    "Google Drive": true,
+    Calendar: true,
+    Slack: false,
+    Notion: false,
+    Stripe: true,
+  });
 
   useEffect(() => {
     const raw = localStorage.getItem("onecrew_session");
@@ -148,6 +160,34 @@ export default function DashboardPage() {
     setActivity((a) => [{ id: Date.now(), agent: "Atlas", text: "is coordinating: “" + value + "”", time: "now" }, ...a]);
     setCommand("");
     setToast("Atlas is coordinating the crew.");
+  }
+
+  function addKnowledge(e: FormEvent) {
+    e.preventDefault();
+    const value = knowledgeDraft.trim();
+    if (!value) return;
+    setVaultDocs((docs) => [value, ...docs]);
+    setKnowledgeDraft("");
+    setToast("Added to company memory.");
+  }
+
+  function forgeMission(e: FormEvent) {
+    e.preventDefault();
+    const value = forgeGoal.trim();
+    if (!value) return;
+    const next = [{ id: Date.now(), title: value, owner: "Atlas", progress: 4, status: "Planning" }, ...missions];
+    setMissions(next);
+    localStorage.setItem("onecrew_missions", JSON.stringify(next));
+    setForgeGoal("");
+    setActive("missions");
+    setToast("Atlas turned your goal into a mission.");
+  }
+
+  function createAtelierDraft() {
+    const names = ["Customer launch email", "Product update story", "Social launch kit", "Sales enablement page"];
+    const name = names[atelierItems.length % names.length];
+    setAtelierItems((items) => [name, ...items]);
+    setToast("Luna and Echo created a new draft.");
   }
 
   function signOut() {
@@ -317,12 +357,72 @@ export default function DashboardPage() {
             </section>
           )}
 
-          {["orbit","forge","vault","prism","dock","atelier"].includes(active) && (
-            <section className="section-panel utility-panel">
-              <div className={"utility-icon " + active}><Icon name={nav.find((n)=>n[0]===active)?.[2] || "orbit"} size={28}/></div>
-              <h2>{nav.find((n) => n[0] === active)?.[1]}</h2>
-              <p>{active === "orbit" && "A live map of how agents, goals, knowledge and tools connect across your company."}{active === "forge" && "Turn a goal into a mission, tasks and an assigned crew."}{active === "vault" && "Your company memory: products, decisions, documents and customer knowledge."}{active === "prism" && "See the patterns your agents are finding across customers, competitors and performance."}{active === "dock" && "Connect the tools your crew can safely read from and act inside."}{active === "atelier" && "A shared creative workspace for campaigns, copy, visuals and launch assets."}</p>
-              {active === "forge" ? <button className="utility-action" onClick={() => setShowMission(true)}>Forge a mission →</button> : <button className="utility-action" onClick={() => setToast("This workspace is ready for your next integration.")}>Open workspace →</button>}
+          {active === "orbit" && (
+            <section className="section-panel orbit-panel">
+              <div className="panel-toolbar"><div><h2>Orbit</h2><span>Your company graph, live.</span></div><span>10 agents · {missions.length} missions · {vaultDocs.length} memory sources</span></div>
+              <div className="orbit-canvas">
+                <div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" />
+                <button className="orbit-founder"><span>{session.name.slice(0,1).toUpperCase()}</span><b>{session.name.split(" ")[0]}</b><small>Founder</small></button>
+                {agents.slice(0,8).map((a,i) => <button key={a.name} className={"orbit-agent orbit-agent-"+i} onClick={() => {setSelectedAgent(a);setActive("crew");}}><AgentAvatar image={a.image} size={52}/><b>{a.name}</b><small>{a.role}</small></button>)}
+                <div className="orbit-caption">Every mission, agent and memory source stays connected to one company context.</div>
+              </div>
+            </section>
+          )}
+
+          {active === "forge" && (
+            <section className="section-panel forge-panel">
+              <div className="panel-toolbar"><div><h2>Forge</h2><span>Turn one outcome into coordinated work.</span></div></div>
+              <form className="forge-composer" onSubmit={forgeMission}>
+                <span className="forge-star">✦</span>
+                <textarea value={forgeGoal} onChange={(e)=>setForgeGoal(e.target.value)} placeholder="What should your company accomplish? e.g. Get our first 25 design-agency customers" />
+                <div><span>Atlas will plan the work, choose the crew and request approval before external actions.</span><button>Forge mission →</button></div>
+              </form>
+              <div className="forge-flow">
+                <article><span>01</span><b>Understand outcome</b><small>Atlas clarifies the goal and success metric.</small></article>
+                <i>→</i>
+                <article><span>02</span><b>Assemble crew</b><small>Specialists are chosen for the mission.</small></article>
+                <i>→</i>
+                <article><span>03</span><b>Build plan</b><small>Work becomes tasks, dependencies and reviews.</small></article>
+                <i>→</i>
+                <article><span>04</span><b>Execute</b><small>Your crew works and escalates decisions.</small></article>
+              </div>
+            </section>
+          )}
+
+          {active === "vault" && (
+            <section className="section-panel vault-panel">
+              <div className="panel-toolbar"><div><h2>Vault</h2><span>The shared memory behind every agent.</span></div><span>{vaultDocs.length} sources</span></div>
+              <form className="vault-add" onSubmit={addKnowledge}><Icon name="plus" size={17}/><input value={knowledgeDraft} onChange={(e)=>setKnowledgeDraft(e.target.value)} placeholder="Add a note, URL, policy or company fact…" /><button>Add to memory</button></form>
+              <div className="vault-grid">
+                {vaultDocs.map((doc,i)=><article key={doc+i}><div className="vault-file">{i%3===0?"Aa":i%3===1?"↗":"▤"}</div><div><b>{doc}</b><span>{i%2===0?"Company knowledge":"Founder note"} · Available to crew</span></div><button onClick={()=>{setVaultDocs(d=>d.filter((_,idx)=>idx!==i));setToast("Removed from company memory.");}}>×</button></article>)}
+              </div>
+            </section>
+          )}
+
+          {active === "prism" && (
+            <section className="section-panel prism-panel">
+              <div className="panel-toolbar"><div><h2>Prism</h2><span>Patterns your crew thinks you should notice.</span></div><span>Updated now</span></div>
+              <div className="insight-hero"><div className="insight-glow"/><span>✦ HIGHEST-LEVERAGE INSIGHT</span><h2>Your fastest-growing customers are small agencies with 3–8 people.</h2><p>Scout found the segment converts 2.4× better, while Milo found CAC is 31% lower than your current average.</p><button onClick={()=>{setMissionTitle("Build an agency-focused growth campaign");setMissionOwner("Milo");setShowMission(true);}}>Turn into mission →</button></div>
+              <div className="prism-grid"><article><span>Acquisition</span><b>Organic search is compounding</b><p>Branded search is up 38% in 30 days.</p></article><article><span>Product</span><b>Activation bottleneck found</b><p>Users who invite an agent in day one retain 1.8× better.</p></article><article><span>Sales</span><b>Founder-led outreach wins</b><p>Personalized follow-up is producing the highest reply rate.</p></article></div>
+            </section>
+          )}
+
+          {active === "dock" && (
+            <section className="section-panel dock-panel">
+              <div className="panel-toolbar"><div><h2>Dock</h2><span>Control what your crew can read and do.</span></div><span>{Object.values(integrations).filter(Boolean).length} connected</span></div>
+              <div className="integration-grid">
+                {Object.entries(integrations).map(([name,on],i)=><article key={name}><div className={"integration-logo int-"+i}>{name.slice(0,1)}</div><div><b>{name}</b><span>{on?"Connected · Crew access enabled":"Not connected"}</span></div><button className={on?"connected":""} onClick={()=>{setIntegrations(v=>({...v,[name]:!on}));setToast((on?"Disconnected ":"Connected ")+name+".");}}>{on?"Connected ✓":"Connect"}</button></article>)}
+              </div>
+              <div className="permission-note"><Icon name="vault" size={18}/><div><b>Permission-first by default</b><span>Agents can only take actions that match the access level you approve.</span></div></div>
+            </section>
+          )}
+
+          {active === "atelier" && (
+            <section className="section-panel atelier-panel">
+              <div className="panel-toolbar"><div><h2>Atelier</h2><span>Where Luna + Echo turn strategy into creative work.</span></div><button onClick={createAtelierDraft}><Icon name="plus" size={16}/> New draft</button></div>
+              <div className="atelier-grid">
+                {atelierItems.map((item,i)=><article key={item+i} className={"atelier-card art-"+(i%4)}><div className="atelier-preview"><span>{i%2===0?"Aa":"✦"}</span><small>{item}</small></div><div><b>{item}</b><span>{i%2===0?"Echo · Copy":"Luna · Design"} · edited just now</span></div><button onClick={()=>setToast("Opened “"+item+"” in Atelier.")}>Open →</button></article>)}
+              </div>
             </section>
           )}
         </div>
