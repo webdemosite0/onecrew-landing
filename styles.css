@@ -133,3 +133,17 @@ button{cursor:pointer}
 @media(max-width:620px){
   .atelier-grid{grid-template-columns:1fr}.forge-flow{grid-template-columns:1fr}.orbit-agent small{display:none}.orbit-agent{padding:5px}.orbit-ring.ring-two{display:none}.orbit-agent-3,.orbit-agent-4{bottom:14%}
 }
+
+
+/* ===== Neon database dashboard state ===== */
+.neon-db-badge{height:32px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border-radius:999px;border:1px solid var(--dash-border);background:var(--dash-card);font-size:8px;font-weight:750;color:var(--dash-muted);white-space:nowrap;transition:.25s}
+.neon-db-badge.connected{color:#12956b;background:#eafaf4;border-color:#cdeee1}
+.neon-db-badge.connected svg{filter:drop-shadow(0 0 5px rgba(38,190,136,.25))}
+.neon-db-badge.loading{color:#6b62ef;background:#f0efff;border-color:#dfdbff}
+.neon-db-badge.loading svg{animation:neonPulse 1.2s ease-in-out infinite}
+.neon-db-badge.offline{color:#b36b32;background:#fff6ea;border-color:#f2dfc9}
+.dashboard-app.dark .neon-db-badge.connected{background:#103127;border-color:#1d4d3c;color:#60dda9}
+.dashboard-app.dark .neon-db-badge.loading{background:#211d45;border-color:#393166;color:#a99eff}
+.dashboard-app.dark .neon-db-badge.offline{background:#382718;border-color:#5c4028;color:#f3b575}
+@keyframes neonPulse{50%{opacity:.45;transform:scale(.92)}}
+@media(max-width:760px){.neon-db-badge{display:none}}
