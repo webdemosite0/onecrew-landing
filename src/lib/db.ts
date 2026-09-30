@@ -9,5 +9,5 @@ export function getDb() {
   }
 
   const client = neon(databaseUrl);
-  return drizzle(client, { schema });
+  return drizzle({ client, schema });
 }
