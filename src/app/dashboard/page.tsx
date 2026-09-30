@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, ReactNode, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";\nimport type { FormEvent, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import OneCrewLogo from "../../components/OneCrewLogo";
 
