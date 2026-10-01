@@ -2,16 +2,16 @@ import Link from "next/link";
 import OneCrewLogo from "../components/OneCrewLogo";
 
 const crew = [
-  ["atlas","Atlas","Research"],
-  ["nova","Nova","Product"],
-  ["milo","Milo","Marketing"],
-  ["zara","Zara","Sales"],
-  ["leo","Leo","Support"],
-  ["iris","Iris","Design"],
-  ["kael","Kael","Finance"],
-  ["luna","Luna","Operations"],
+  ["atlas","Atlas","Chief of Staff"],
+  ["nova","Nova","Operations"],
+  ["milo","Milo","Growth"],
+  ["zara","Zara","Finance"],
+  ["leo","Leo","Sales"],
+  ["iris","Iris","Support"],
+  ["kael","Kael","Product"],
+  ["luna","Luna","Design"],
   ["echo","Echo","Content"],
-  ["scout","Scout","Strategy"],
+  ["scout","Scout","Research"],
 ];
 
 function CrewAvatar({name,size=52}:{name:string;size?:number}) {
